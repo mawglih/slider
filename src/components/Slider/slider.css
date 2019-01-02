@@ -1,0 +1,82 @@
+.red {
+  color: red;
+}
+.title {
+  text-align: center;
+}
+.container {
+  position: relative;
+ }
+ 
+ .currenSlider {
+ }
+ .slider {
+   position: relative;
+   user-select:none;
+   margin-top: 10px;  
+ }
+ 
+ .scale {
+ }
+ 
+ .sliderThumb {
+   position: absolute;
+   background-color:gray;
+   height:20px;
+   width:20px;
+   border-radius:50%;
+   top: -8px;
+   touch-action: none;
+ }
+ 
+ .sliderThumb_min {
+   background-color:red;
+ }
+ 
+ .sliderThumb_max {
+   background-color: blue;
+ }
+ 
+ .slot {
+   text-align: center;
+   display:inline-block;
+   width:20px;
+   height:20px;
+   background-color:none;
+ }
+ 
+ .scaleMark {
+  position: absolute;
+  border: 0.5px solid lightgray;;
+  height: 10px;
+ }
+ 
+ .slotScale {
+   text-align: center;
+   display:inline-block;
+   width:20px;
+   height:20px;
+   color: lightgray;
+   user-select: none;
+   
+ }
+ 
+ .slot >.sliderThumb {
+   top:3px
+ }
+ 
+ .line {
+   position: absolute;
+   background-color: lightgray;
+   height:2px;
+   width: 20px;
+   top: 12px;
+ }
+ 
+ .lineSelected {
+   height: 4px;
+   background-color: #191919;
+ }
+ 
+ 
+ 
