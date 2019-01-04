@@ -1,0 +1,114 @@
+.container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  /* position: relative; */
+}
+.content {
+  width: 42rem;
+  position: relative;
+}
+.slider {
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 40rem;
+  margin: 0;
+  padding: 0 2px;
+  height: 10px;
+  background-color: #666;
+  /* Add some L/R padding to ensure box shadow of handle is shown */
+  /* overflow: hidden; */
+  border: 0;
+  border-radius: 1px;
+  outline: none;
+  /* background: linear-gradient(grey, grey) no-repeat center;
+  /* Use a linear gradient to generate only the 2px height background */
+  /* background-size: 100% 2px; */
+  pointer-events: none;
+}
+.slider:active,
+.slider:focus {
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  border: 8px solid red;
+  background-color: #fff;
+  position: relative;
+  margin: 5px 0;
+  /* Add some margin to ensure box shadow is shown */
+  cursor: pointer;
+  appearance: none;
+  pointer-events: all;
+  box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.25);
+}
+.slider::-webkit-slider-thumb::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 13px;
+  left: 100%;
+  width: 2000px;
+  height: 2px;
+}
+.slider::-webkit-slider-runnable-track {
+  color: #222;
+  margin-top: 1px;
+}
+.multi_range {
+  position: relative;
+  height: 50px;
+  display: block;
+}
+.multi_range .slider, .minAge, .maxAge {
+     position: absolute;
+}    
+.multi_range .slider:nth-child(1)::-webkit-slider-thumb::before {
+  background-color: red;
+}
+.multi_range .slider:nth-child(2) {
+  background: none;
+}
+.multi_range .slider:nth-child(2)::-webkit-slider-thumb::before {
+  background-color: grey; 
+}
+.minAge, .maxAge {
+  color: red;
+  font-weight: bold;
+  font-size: 1.5rem;
+  /* padding: 10px; */
+  /* position: absolute; */
+}
+.minAge {
+  top: -1rem;
+  left: -2.5rem;
+}
+.maxAge {
+  top: -1rem;
+  right: -1.5rem;
+}
+.minOutput, .maxOutput {
+  position: absolute;
+  background-color: red;
+  color: white;
+  border: 1px red solid;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  font-size: 18px;
+  text-align: center;
+}
+.minOutput {
+  top:-2.5rem;
+  /* left: 1rem; */
+}
+.maxOutput {
+  top:-2.5rem;
+  /* left: 24rem; */
+}
