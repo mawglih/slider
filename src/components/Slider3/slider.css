@@ -4,11 +4,12 @@
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-  /* position: relative; */
+  font-size: 10px;
+  position: relative;
 }
 .content {
   width: 42rem;
-  position: relative;
+  /* position: relative; */
 }
 .slider {
   box-sizing: border-box;
@@ -47,6 +48,7 @@
   appearance: none;
   pointer-events: all;
   box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.25);
+  z-index: 10;
 }
 .slider::-webkit-slider-thumb::before {
   content: ' ';
@@ -65,6 +67,7 @@
   position: relative;
   height: 50px;
   display: block;
+  /* position: relative; */
 }
 .multi_range .slider, .minAge, .maxAge {
      position: absolute;
@@ -105,7 +108,7 @@
   text-align: center;
 }
 .minOutput {
-  top:-2.5rem;
+   top:-2.5rem;
   /* left: 1rem; */
 }
 .maxOutput {

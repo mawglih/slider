@@ -5,9 +5,31 @@ export class Slider3 extends Component {
   state = {
     lowerVal: 20,
     upperVal: 50,
-    posMin: 1,
-    posMax: 23,
+    posMax_X: null,
+    // posMax_Y: null,
+    posMin_X: null,
+    // posMin_Y: null,
   }
+
+  handlePositionMin = e => {
+    let pos_x = e.x;
+    // let pos_y = e.y;
+    // console.log(`mouse pos: ${pos_x}: ${pos_y}`)
+    this.setState({
+      posMin_X: pos_x,
+      // posMin_Y: pos_y,
+    });
+  }
+  handlePositionMax = e => {
+    let pos_x = e.x;
+    // let pos_y = e.y;
+    // console.log(`mouse pos: ${pos_x}: ${pos_y}`)
+    this.setState({
+      posMax_X: pos_x,
+      // posMax_Y: pos_y,
+    });
+  }
+  
 
   onLowerChange = e => {
     const {
@@ -17,49 +39,10 @@ export class Slider3 extends Component {
     if(val < upperVal) {
       this.setState({
         lowerVal: val,
-        posMin: val
       });
     } else {
       this.setState({
         lowerVal: upperVal,
-        posMin: upperVal
-      });
-    }
-    if(val < 20) {
-      this.setState({
-        posMin: 0
-      })
-    } else if(val < 25) {
-      this.setState({
-        posMin: val * .1
-      });
-    } else if ( val >= 25 && val < 30) {
-        this.setState({
-          posMin: val * .2
-      });
-    } else if ( val >= 30 && val < 35) {
-        this.setState({
-          posMin: val * .3
-      });
-    } else if ( val >= 35 && val < 40) {
-        this.setState({
-          posMin: val * .35
-      });
-    } else if(val >= 40 && val < 45){
-        this.setState({
-          posMin: val * .4
-      });
-    } else if(val >= 45 && val < 50){
-        this.setState({
-          posMin: val * .44
-      });
-    } else if(val >= 50 && val < 60){
-        this.setState({
-          posMin: val * .48
-      });
-    } else {
-        this.setState({
-          posMin: val * .52
       });
     }
   }
@@ -78,50 +61,44 @@ export class Slider3 extends Component {
         upperVal:lowerVal,
       })
     }
-    if(val < 25) {
-      this.setState({
-        posMax: val * .1
-      });
-    } else if ( val >= 25 && val < 30) {
-        this.setState({
-          posMax: val * .25
-      });
-    } else if ( val >= 30 && val < 40) {
-        this.setState({
-          posMax: val * .35
-      });
-    } else if(val >= 40 && val < 45){
-        this.setState({
-          posMax: val * .45
-      });
-    } else if(val >= 45 && val < 50){
-        this.setState({
-          posMax: val * .5
-      });
-    } else if(val >= 50 && val < 60){
-        this.setState({
-          posMax: val * .52
-      });
-    } else {
-        this.setState({
-          posMax: val * .55
-      });
-    }
   }
 
   render() {
     const {
       lowerVal,
       upperVal,
-      posMin,
-      posMax,
+      posMin_X,
+      // posMin_Y,
+      posMax_X,
+      // posMax_Y,
     } = this.state;
+    // console.log('state: ', posMin_X, posMin_Y);
     return (
       <div className={styles.container}>
         <div className={styles.content}>
-          <span
+          <div
             className={styles.multi_range}
-          >
+          > 
+            {posMin_X !== null ? (
+              <div
+                className={styles.minOutput}
+                style={{ left: '2rem' }}
+                // style={{ left: posMin_X - 450 + 'px' }}
+              >
+                {lowerVal}
+              </div>
+              ) : null
+            }
+            {posMax_X !== null ? (
+              <div
+                className={styles.maxOutput}
+                style={{ right: '3rem' }}
+                // style={{ left: posMax_X - 440 + 'px' }}
+              >
+                {upperVal}
+              </div>
+              ) : null
+            }
             <input
               data-slider="min"
               type="range"
@@ -130,6 +107,8 @@ export class Slider3 extends Component {
               value={lowerVal}
               className={styles.slider}
               onChange={this.onLowerChange}
+              onMouseEnter={() => document.addEventListener('mousemove', this.handlePositionMin)}
+              onMouseLeave={() => document.removeEventListener('mousemove', this.handlePositionMin)}
             />
             <input
               data-slider="max"
@@ -140,20 +119,10 @@ export class Slider3 extends Component {
               value={upperVal}
               className={styles.slider}
               onChange={this.onUpperChange}
+              onMouseEnter={() => document.addEventListener('mousemove', this.handlePositionMax)}
+              onMouseLeave={() => document.removeEventListener('mousemove', this.handlePositionMax)}
             />
-            <span
-              className={styles.minOutput}
-              style={{ left: posMin + 'rem'}}
-            >
-              {lowerVal}
-            </span>
-            <span
-              className={styles.maxOutput}
-              style={{ left: posMax + 'rem' }}
-            >
-              {upperVal}
-            </span>
-          </span>
+          </div>
           <span className={styles.minAge}>
             {'18'}
           </span>
