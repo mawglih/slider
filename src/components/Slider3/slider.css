@@ -9,7 +9,7 @@
 }
 .content {
   width: 42rem;
-  /* position: relative; */
+  position: relative;
 }
 .slider {
   box-sizing: border-box;

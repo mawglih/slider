@@ -82,8 +82,8 @@ export class Slider3 extends Component {
             {posMin_X !== null ? (
               <div
                 className={styles.minOutput}
-                style={{ left: '2rem' }}
-                // style={{ left: posMin_X - 450 + 'px' }}
+                // style={{ left: '2rem' }}
+                style={{ left: posMin_X - 450 + 'px' }}
               >
                 {lowerVal}
               </div>
@@ -93,7 +93,7 @@ export class Slider3 extends Component {
               <div
                 className={styles.maxOutput}
                 style={{ right: '3rem' }}
-                // style={{ left: posMax_X - 440 + 'px' }}
+                style={{ left: posMax_X - 440 + 'px' }}
               >
                 {upperVal}
               </div>
