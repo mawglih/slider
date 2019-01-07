@@ -6,27 +6,33 @@ export class Slider3 extends Component {
     lowerVal: 20,
     upperVal: 50,
     posMax_X: null,
-    // posMax_Y: null,
+    posMax_Y: null,
     posMin_X: null,
-    // posMin_Y: null,
+    posMin_Y: null,
   }
 
+  // getYposMin = e => {
+  //   this.setState({
+  //     posMin_Y: e.x - 40,
+  //   })
+  // }
+
+  // getYposMax = e => {
+  //   this.setState({
+  //     posMax_Y: e.x - 40,
+  //   })
+  // }
+  
   handlePositionMin = e => {
-    let pos_x = e.x;
-    // let pos_y = e.y;
-    // console.log(`mouse pos: ${pos_x}: ${pos_y}`)
     this.setState({
-      posMin_X: pos_x,
-      // posMin_Y: pos_y,
+      posMin_X: e.x - 40,
+      posMin_Y: e.y - 40,
     });
   }
   handlePositionMax = e => {
-    let pos_x = e.x;
-    // let pos_y = e.y;
-    // console.log(`mouse pos: ${pos_x}: ${pos_y}`)
     this.setState({
-      posMax_X: pos_x,
-      // posMax_Y: pos_y,
+      posMax_X:e.x + 10,
+      posMax_Y:e.y - 40,
     });
   }
   
@@ -68,9 +74,9 @@ export class Slider3 extends Component {
       lowerVal,
       upperVal,
       posMin_X,
-      // posMin_Y,
+      posMin_Y,
       posMax_X,
-      // posMax_Y,
+      posMax_Y,
     } = this.state;
     // console.log('state: ', posMin_X, posMin_Y);
     return (
@@ -79,26 +85,6 @@ export class Slider3 extends Component {
           <div
             className={styles.multi_range}
           > 
-            {posMin_X !== null ? (
-              <div
-                className={styles.minOutput}
-                // style={{ left: '2rem' }}
-                style={{ left: posMin_X - 450 + 'px' }}
-              >
-                {lowerVal}
-              </div>
-              ) : null
-            }
-            {posMax_X !== null ? (
-              <div
-                className={styles.maxOutput}
-                style={{ right: '3rem' }}
-                style={{ left: posMax_X - 440 + 'px' }}
-              >
-                {upperVal}
-              </div>
-              ) : null
-            }
             <input
               data-slider="min"
               type="range"
@@ -130,6 +116,26 @@ export class Slider3 extends Component {
             {'70+'}
           </span>
         </div>
+        {posMin_X !== null ? (
+          <div
+            className={styles.minOutput}
+            // style={{ left: '2rem' }}
+            style={{ left: posMin_X + 'px', top: posMin_Y + 'px' }}
+          >
+            {lowerVal}
+          </div>
+          ) : null
+        }
+        {posMax_X !== null ? (
+          <div
+            className={styles.maxOutput}
+            // style={{ right: '3rem' }}
+            style={{ left: posMax_X + 'px', top: posMax_Y + 'px' }}
+          >
+            {upperVal}
+          </div>
+          ) : null
+        }
       </div>
     )
   }

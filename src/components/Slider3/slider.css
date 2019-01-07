@@ -5,7 +5,7 @@
   justify-content: center;
   margin-top: 50px;
   font-size: 10px;
-  position: relative;
+  /* position: relative; */
 }
 .content {
   width: 42rem;
@@ -107,11 +107,11 @@
   font-size: 18px;
   text-align: center;
 }
-.minOutput {
+/* .minOutput {
    top:-2.5rem;
-  /* left: 1rem; */
+    left: 1rem; 
 }
 .maxOutput {
   top:-2.5rem;
-  /* left: 24rem; */
-}
+  left: 24rem; 
+} */
